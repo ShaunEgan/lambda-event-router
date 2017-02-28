@@ -1,5 +1,5 @@
 {
-  "name": "aws-lambda-router",
+  "name": "lambda-event-router",
   "version": "0.0.1",
   "description": "Routing for AWS Lambda events",
   "main": "src/index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShaunEgan/aws-lambda-router.git"
+    "url": "git+https://github.com/ShaunEgan/lambda-event-router.git"
   },
   "keywords": [
     "aws",
@@ -18,6 +18,6 @@
   "author": "Shaun Egan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ShaunEgan/aws-lambda-router/issues"
+    "url": "https://github.com/ShaunEgan/lambda-event-router/issues"
   }
 }
