@@ -12,16 +12,17 @@ module.exports.router = () => ({
   trace: (path, handler) => routes.add('TRACE', path, handler),
   options: (path, handler) => routes.add('OPTIONS', path, handler),
 
-  route: (event, context) => {
+  route: (event, context, callback) => {
     const resource = event.resource;
     const httpMethod = event.httpMethod;
 
     const resolved = routes.find(httpMethod, resource);
 
     if (resolved.length > 0) {
-      resolved[0].handler(event, context);
+      resolved[0].handler(event, context, callback);
     } else {
       context.fail({ error: 'Unroutable request', path: resource, method: httpMethod });
     }
   }
 });
+
