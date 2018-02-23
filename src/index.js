@@ -13,7 +13,8 @@ module.exports.router = () => ({
   options: (path, handler) => routes.add('OPTIONS', path, handler),
 
   route: (event, context, callback) => {
-    const resource = event.resource;
+    const proxyMatch = event.resource.match(/{[a-zA-Z0-9._\-]+\+}/);
+    const resource = proxyMatch ? event.resource.replace(proxyMatch[0], event.pathParameters[proxyMatch[0].slice(1, proxyMatch[0].length - 2)]) : event.resource;
     const httpMethod = event.httpMethod;
 
     const resolved = routes.find(httpMethod, resource);
